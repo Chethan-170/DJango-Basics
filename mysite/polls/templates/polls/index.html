@@ -1,0 +1,19 @@
+        {% include "./header.html" with title=title %}
+        <div class="card" style="width:25rem;">            
+            <ul class="list-group">
+                <li class="list-group-item active text-center">Questions</li>
+                {% if latest_question_list %}
+                    {% for question in latest_question_list %}
+                        <li class="list-group-item">
+                            <a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a>
+                        </li>
+                    {% endfor %}
+                {% else %}
+                    <li class="list-group-item">No polls are available.</li>
+                {% endif %}
+            </ul>
+        </div>
+        
+    </div>
+    </body>
+</html>
